@@ -10,12 +10,25 @@
  * @param value - 要過濾的屬性值
  * @returns - 回傳過濾後的陣列
  */
-export function filterByProperty(){
-    // 請在此處寫下你的程式碼
-}
+type ObjectItem = {
+  name: string;
+  age: number;
+};
 
+export function filterByProperty<T extends ObjectItem, K extends keyof T>(
+  array: T[],
+  property: K,
+  value: T[K]
+): T[] {
+  // 請在此處寫下你的程式碼
+  let result: T[] = [];
+  array.forEach((item) => {
+    if (item[property] === value) result.push(item);
+  });
+  return result;
+}
 
 // 寫法推薦
 // export function filterByProperty<T, K extends keyof T>(array: T[], property: K, value: T[K]): T[] {
-    
+
 // }
